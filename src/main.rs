@@ -4,6 +4,21 @@
 pub struct LRUStack<T> {
  	pub stack: Vec<Option<Box<T>>>,
 }
+	
+//A*B = C
+fn nmm(A: Vec<Vec<f32>>, B: Vec<Vec<f32>>) -> Vec<Vec<f32>> {
+    let mut C: Vec<Vec<f32>> = vec![vec![0.0; B[0].len()]; A.len()];
+
+    for i in 0..A.len(){
+        for j in 0..B[0].len(){
+            for k in 0..A[0].len(){
+                C[i][j] += A[i][k]*B[k][j];
+            }
+        }
+    }
+
+    C
+}
 
 impl<T: PartialEq> LRUStack<T> {
 
